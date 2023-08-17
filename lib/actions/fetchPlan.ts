@@ -1,7 +1,6 @@
 import axios from "axios";
-
 const fetchData = async (input: string) => {
-  // console.log(process.env.CHIMERA_API_KEY);
+  console.log(process.env.CLERK_SECRET_KEY);
 
   const response = await axios.post(
     "https://chimeragpt.adventblocks.cc/api/v1/chat/completions",

@@ -7,6 +7,7 @@ import fetchData from "@/lib/actions/fetchPlan";
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [content, setContent] = useState<JSX.Element[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   // const responses = [];
   const handleChange = (newPrompt: string) => {
     setPrompt(newPrompt);
@@ -22,24 +23,37 @@ export default function Home() {
   }
   useEffect(() => {
     const setData = async () => {
-      const newContent = await fetchData(prompt).then((content) =>
-        formatTextToHTML(content)
-      );
-      console.log(newContent);
-      setContent(newContent);
-      // responses.push(newContent);
+      setLoading(true); // Show the loading spinner
+
+      try {
+        const newContent = await fetchData(prompt).then((content) =>
+          formatTextToHTML(content)
+        );
+        console.log(newContent);
+        setContent(newContent);
+      } catch (error) {
+        console.error("Error fetching or formatting data:", error);
+      } finally {
+        setLoading(false); // Hide the loading spinner
+      }
     };
+
     setData();
   }, [prompt]);
 
   return (
     <div className="w-full">
-      {content.length === 0 ? (
+      {loading ? (
         <Card />
       ) : (
-        <Card content={content} isReply={true} />
+        <>
+          {content.length === 0 ? (
+            <Card />
+          ) : (
+            <Card content={content} isReply={true} />
+          )}
+        </>
       )}
-      {/* {console.log(responses)} */}
       <div className="mt-12">
         <SearchBar handleSubmit={handleChange} />
       </div>
