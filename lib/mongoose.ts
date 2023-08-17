@@ -9,7 +9,7 @@ export const connectToDB = async () => {
   const MONGODB_URL =
     "mongodb+srv://syedfazil539:adT3EFG0V6ML3oyx@cluster0.mb6yppf.mongodb.net/?retryWrites=true&w=majority";
   try {
-    await mongoose.connect(MONGODB_URL);
+    await mongoose.connect(process.env.MONGODB_URL);
     isConnected = true;
     console.log("Connected to MongoDB");
   } catch (error) {
