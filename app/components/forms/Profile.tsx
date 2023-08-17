@@ -51,16 +51,16 @@ const AccountProfile = ({ user }: Props) => {
 
   const onSubmit = async (values: z.infer<typeof UserValidation>) => {
     // TODO: Update user profile
-    connectToDB();
-    // await updateUser({
-    //   userId: user.id,
-    //   name: values.name,
-    //   age: values.age,
-    //   bloodGroup: values.bloodGroup,
-    //   gender: values.gender,
-    //   weight: values.weight,
-    //   height: values.height,
-    // });
+    // connectToDB();
+    await updateUser({
+      userId: user.id,
+      name: values.name,
+      age: values.age,
+      bloodGroup: values.bloodGroup,
+      gender: values.gender,
+      weight: values.weight,
+      height: values.height,
+    });
     console.log(values);
 
     if (pathname === "/profile/edit") {

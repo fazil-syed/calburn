@@ -19,21 +19,21 @@ export async function updateUser({
   weight,
   height,
 }: Params): Promise<void> {
-  // connectToDB();
+  connectToDB();
   try {
-    // await User.findOneAndUpdate(
-    //   { id: userId },
-    //   {
-    //     name,
-    //     age,
-    //     bloodGroup,
-    //     gender,
-    //     weight,
-    //     height,
-    //     onboarded: true,
-    //   },
-    //   { upsert: true }
-    // );
+    await User.findOneAndUpdate(
+      { id: userId },
+      {
+        name,
+        age,
+        bloodGroup,
+        gender,
+        weight,
+        height,
+        onboarded: true,
+      },
+      { upsert: true }
+    );
   } catch (error: any) {
     throw new Error(`Failed to create/update user: ${error.message}`);
   }
