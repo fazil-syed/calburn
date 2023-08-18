@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Topbar from "./components/Topbar";
 import { ClerkProvider } from "@clerk/nextjs";
+// import "regenerator-runtime/runtime";
 
 const inter = Inter({ subsets: ["latin"] });
 

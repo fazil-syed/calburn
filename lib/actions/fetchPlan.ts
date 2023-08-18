@@ -2,7 +2,6 @@ import axios from "axios";
 import { fetchUser } from "./user.actions";
 const fetchData = async (input: string, userId: string) => {
   const userInfo = await fetchUser(userId);
-  console.log(userInfo);
 
   const response = await axios.post(
     "https://chimeragpt.adventblocks.cc/api/v1/chat/completions",
