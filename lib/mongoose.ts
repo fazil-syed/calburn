@@ -1,20 +1,16 @@
+"use server";
 import mongoose from "mongoose";
-// import dotenv from "dotenv";
-// dotenv.config();
+
 let isConnected = false; //variable to check if mongoose is connected or not
 
 export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
   if (!process.env.MONGODB_URL) return console.log("MONGODB_URL NOT FOUND");
   if (isConnected) return console.log("Already Connected to MongoDB");
-  // const MONGODB_URL =
-  //   "mongodb+srv://syedfazil539:adT3EFG0V6ML3oyx@cluster0.mb6yppf.mongodb.net/?retryWrites=true&w=majority";
-  console.log(mongoose);
-  console.log(process.env.MONGODB_URL);
 
   try {
     await mongoose.connect(
-      "mongodb+srv://syedfazil539:adT3EFG0V6ML3oyx@cluster0.mb6yppf.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://syedfazil539:25SKOH6jJ3edPyx8@cluster0.pytwohi.mongodb.net/?retryWrites=true&w=majority"
     );
     isConnected = true;
     console.log("Connected to MongoDB");

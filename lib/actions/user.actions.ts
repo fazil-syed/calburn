@@ -1,3 +1,4 @@
+"use server";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 
@@ -19,8 +20,8 @@ export async function updateUser({
   weight,
   height,
 }: Params): Promise<void> {
-  connectToDB();
   try {
+    connectToDB();
     await User.findOneAndUpdate(
       { id: userId },
       {
@@ -34,6 +35,7 @@ export async function updateUser({
       },
       { upsert: true }
     );
+    console.log("User Updated");
   } catch (error: any) {
     throw new Error(`Failed to create/update user: ${error.message}`);
   }

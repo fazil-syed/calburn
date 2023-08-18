@@ -27,7 +27,7 @@ const SearchBar = ({ handleSubmit }: { handleSubmit: Function }) => {
           placeholder="Ask Questions related to Fitness"
           value={query}
           onChange={handleInputChange}
-          className="border-none px-2 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 mr-3 bg-dark-2 w-full"
+          className="border-none px-2 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 mr-3 bg-dark-2 w-full text-light-1"
         />
         <button
           type="submit"

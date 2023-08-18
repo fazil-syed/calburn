@@ -172,36 +172,6 @@ const AccountProfile = ({ user }: Props) => {
             </FormItem>
           )}
         />
-        {/* <FormField
-          control={form.control}
-          name="gender"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
-              <FormLabel>Gender</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className="flex flex-col space-y-1"
-                >
-                  <FormItem className="flex items-center space-x-3 space-y-0 ">
-                    <FormControl>
-                      <RadioGroupItem value="male" className="bg-primary-500" />
-                    </FormControl>
-                    <FormLabel className="font-normal">Male</FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="female" />
-                    </FormControl>
-                    <FormLabel className="font-normal">Female</FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
         <FormField
           control={form.control}
           name="bloodGroup"
