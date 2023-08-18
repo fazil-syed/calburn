@@ -9,8 +9,6 @@ const SearchBar = ({ handleSubmit }: { handleSubmit: Function }) => {
     setQuery(event.target.value);
   };
   const handleClick = () => {
-    console.log(query);
-
     handleSubmit(query);
     setQuery("");
   };

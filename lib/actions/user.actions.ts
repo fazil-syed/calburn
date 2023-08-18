@@ -35,7 +35,7 @@ export async function updateUser({
       },
       { upsert: true }
     );
-    console.log("User Updated");
+   
   } catch (error: any) {
     throw new Error(`Failed to create/update user: ${error.message}`);
   }

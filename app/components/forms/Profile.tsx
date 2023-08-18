@@ -57,7 +57,7 @@ const AccountProfile = ({ user }: Props) => {
       weight: values.weight,
       height: values.height,
     });
-    console.log(values);
+ 
 
     if (pathname === "/profile/edit") {
       router.back();

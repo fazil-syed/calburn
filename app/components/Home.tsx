@@ -29,7 +29,7 @@ export default function Home({ user }) {
         const newContent = await fetchData(prompt, user.id).then((content) =>
           formatTextToHTML(content)
         );
-        console.log(newContent);
+
         setContent(newContent);
       } catch (error) {
         console.error("Error fetching or formatting data:", error);
@@ -40,7 +40,7 @@ export default function Home({ user }) {
 
     setData();
   }, [prompt]);
- 
+
   return (
     <div className="w-full">
       {loading ? (
