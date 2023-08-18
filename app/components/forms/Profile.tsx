@@ -13,14 +13,11 @@ import { Input } from "@/components/ui/input";
 import { updateUser } from "@/lib/actions/user.actions";
 // import { useUploadThing } from "@/lib/uploadthing";
 // import { isBase64Image } from "@/lib/utils";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { UserValidation } from "@/lib/validations/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { connectToDB } from "@/lib/mongoose";
 
 interface Props {
   user: {
@@ -51,7 +48,6 @@ const AccountProfile = ({ user }: Props) => {
 
   const onSubmit = async (values: z.infer<typeof UserValidation>) => {
     // TODO: Update user profile
-    // connectToDB();
     await updateUser({
       userId: user.id,
       name: values.name,

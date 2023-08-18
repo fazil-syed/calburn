@@ -4,11 +4,11 @@ import Card from "./Card";
 import SearchBar from "./SearchBar";
 import fetchData from "@/lib/actions/fetchPlan";
 
-export default function Home() {
+export default function Home({ user }) {
   const [prompt, setPrompt] = useState("");
   const [content, setContent] = useState<JSX.Element[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  // const responses = [];
+
   const handleChange = (newPrompt: string) => {
     setPrompt(newPrompt);
   };
@@ -26,7 +26,7 @@ export default function Home() {
       setLoading(true); // Show the loading spinner
 
       try {
-        const newContent = await fetchData(prompt).then((content) =>
+        const newContent = await fetchData(prompt, user.id).then((content) =>
           formatTextToHTML(content)
         );
         console.log(newContent);
@@ -40,7 +40,7 @@ export default function Home() {
 
     setData();
   }, [prompt]);
-
+ 
   return (
     <div className="w-full">
       {loading ? (
