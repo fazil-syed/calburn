@@ -8,8 +8,8 @@ const userSchema = new mongoose.Schema({
   age: { type: String, required: true },
   bloodGroup: { type: String, required: true },
   gender: { type: String, required: true },
-  weigth: { type: String, required: true },
-  heigth: { type: String, required: true },
+  weight: { type: String, required: true },
+  height: { type: String, required: true },
   onboarded: {
     type: Boolean,
     default: false,
