@@ -5,7 +5,9 @@ import { redirect } from "next/navigation";
 
 export default async function Page() {
   const user = await currentUser();
-
+  const userInfo = await fetchUser(user.id);
+  if (userInfo === null || userInfo.onboarder === false)
+    redirect("/onboarding");
   return (
     <>
       <div className="flex justify-center items-center -mt-2 mb-2">

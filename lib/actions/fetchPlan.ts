@@ -8,7 +8,12 @@ const fetchData = async (input: string, userId: string) => {
     "https://chimeragpt.adventblocks.cc/api/v1/chat/completions",
     {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: `${input}` }],
+      messages: [
+        {
+          role: "user",
+          content: `my weight, height, age, gender and bloodgroup is ${userInfo.weight}, ${userInfo.height}, ${userInfo.age}, ${userInfo.gender} and ${userInfo.bloodGroup} respectively ${input} `,
+        },
+      ],
       allow_fallback: true,
     },
     {
